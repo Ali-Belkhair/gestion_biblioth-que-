@@ -2,6 +2,9 @@
 @section('content')
 
     <h2>For create new book : <a class="btn btn-info" href="{{ route('books.create') }}">Create</a> </h2>
+    
+    {{$books->links()}}
+
 
     <table class="table table-dark container">
         <thead>

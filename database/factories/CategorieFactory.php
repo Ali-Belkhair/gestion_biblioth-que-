@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
-class BookFactory extends Factory
+class CategorieFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,11 +17,8 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => fake()->title() ,
-            'pages' => fake()->numberBetween(45,400) ,
+            'nom' => fake()->title() ,
             'description' => fake()->text() ,
-            'image' => fake()->imageUrl('C:\Users\alibe\OneDrive\Bureau\Designi\Logos\B&S_logo.png') ,
-            'categorie_id' => fake()->numberBetween(1,10) ,
         ];
     }
 }

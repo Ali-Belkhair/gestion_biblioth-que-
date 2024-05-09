@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\Categorie;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,7 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
        
-        Book::factory(20)->create();
+        Categorie::factory(10)->create();
+        Book::factory(300)->create();
 
     }
 }
