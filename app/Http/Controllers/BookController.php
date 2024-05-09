@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
-  
+use Illuminate\Support\Facades\Storage;
+
 class BookController extends Controller
 {
     /**
@@ -40,14 +41,15 @@ class BookController extends Controller
             'pages' => 'required|numeric',
             'description' => 'required', 
             'categorie_id' =>'required|numeric|exists:categories,id' ,
-            'image' =>'required' ,
+            'image'=>'required|mimes:jpg,jpeg,png,bmp'
         ];
 
         $validatedData = $request->validate($rules);
-        // Remove _token from the data
-        // $dataWithoutToken = collect($request->all())->except('_token')->toArray();
 
-        // Create a new Book instance 
+        $imagee = $request->file('image')->store('images','public') ;
+        
+        $validatedData['image']=$imagee ; 
+
         $book = Book::create($validatedData);
 
         // Now you can save the book
@@ -90,6 +92,10 @@ class BookController extends Controller
 
         // find by id and update the Book 
         $book = Book::find($id);
+
+        $imagee = $request->file('image')->store('images','public') ;
+        $dataWithoutToken['image']=$imagee ; 
+
         $book->update($dataWithoutToken);
 
         // Now you can save the book
@@ -104,8 +110,12 @@ class BookController extends Controller
     public function destroy(string $id)
     {
         //  fun for delete
+
         $book = Book::find($id);
+        
+        Storage::disk('public')->delete($book->image) ;
         $book->delete();
+
         return redirect()->route('books.index');
     }
 }

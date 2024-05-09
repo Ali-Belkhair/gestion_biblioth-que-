@@ -25,7 +25,7 @@
                 <td>{{$book->titre}}</td>
                 <td>{{$book->pages}}page</td>
                 <td>{{$book->categorie->nom }}</td>
-                <td>{{$book->image }}</td>
+                <td style="size: 40px,"> <img src="{{asset('storage/'.$book->image)}}" alt="{{ $book->image }}" width="60px" > </td>
                 <td>{{$book->created_at}}</td>
                 <td>
                     <a href="{{route('books.edit',$book->id)}}" class="btn btn-primary">Edit</a>

@@ -4,7 +4,7 @@
     <h1>create Page</h1>
 
     <section class="container">
-        <form action="{{ route('books.store') }}" method="post">
+        <form action="{{ route('books.store') }}" method="post" enctype="multipart/form-data" >
             @csrf
 
             <div class="row">

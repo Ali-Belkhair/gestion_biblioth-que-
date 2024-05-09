@@ -19,6 +19,7 @@ class AuthMiddleware
             // Redirect to login page or handle unauthorized access
             return redirect('/login');
         }
+        
         return $next($request);
     }
 } 

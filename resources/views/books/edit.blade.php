@@ -12,13 +12,13 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Titre</label>
-                        <input type="text" name="titre" class="form-control">
+                        <input type="text" value="{{$book->titre}}" name="titre" class="form-control">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Images</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" value="{{$book->image}}" name="image" class="form-control">
                     </div>
                 </div>
             </div>
@@ -26,13 +26,13 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Pages</label>
-                        <input type="text" name="pages" class="form-control">
+                        <input type="text"  value="{{$book->pages}}" name="pages" class="form-control">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" name="description" rows="3"></textarea>
+                        <textarea class="form-control" value="{{$book->description}}" name="description" rows="3"></textarea>
                     </div>
                 </div>
             </div>
